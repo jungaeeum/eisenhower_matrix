@@ -20,14 +20,33 @@ main {
   position: relative;
 }
 
+.inner {
+  width: 100%;
+  height: auto;
+  background: url("../img/circle_back.jpg") 
+  
+  
+}
+
 .signin-container {
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   /* 개체의 너비, 높이에 대해서 각각 50% 만큼 이동한다. */
   text-align: center;
+  background: url("../img/circle_iconground.jpg") space center / cover
+}
+
+.signin-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
 }
 
 .signin-container h1 {
