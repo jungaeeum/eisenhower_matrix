@@ -84,11 +84,11 @@
         <div class="signin-content">
           <h1>안녕하세요. <span class="blue">성공일정</span>입니다.</h1>
           <div class="signin-form">
-            <input type="text" placeholder="이메일" />
+            <input type="text" placeholder="이메일" id="email" />
             <input type="password" placeholder="비밀번호" id="password" />
             <input type="button" value="로그인" id="signin">
             <div class="signup-container">
-              <a href="#" id="signup">회원가입</a>
+              <a href="./signup.html" id="signup">회원가입</a>
             </div>
         </div>
 
@@ -106,6 +106,13 @@
       </div>
     </div>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="./js/common.js"></script>
+  <script src="./js/signin.js"></script>
   
 </body>
 </html>

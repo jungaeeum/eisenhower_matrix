@@ -51,7 +51,7 @@ main {
 
 .message {
   margin-bottom: 1rem;
-  /* visibility: hidden; */
+  visibility: hidden;
   font-size: 1.2rem;
 }
 
