@@ -1,0 +1,40 @@
+main {
+  position: relative;
+}
+
+.innerbody {
+  width: 100%;
+  height: auto;
+  background: url("../img/circle_back.jpg") 
+}
+
+.user-delete {
+  font-size: 1.5rem;
+}
+
+#mypage {
+  position: relative;
+  z-index: 10;
+}
+
+#sign-out {
+  position: relative;
+  z-index: 10;
+}
+.mypage-container {
+  margin: auto 2rem 0;
+  padding: 5rem;
+}
+
+.mypage-content {
+  width: 80%;
+  max-width: 30rem;
+  height: 300px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-bar .user-delete {
+  cursor: pointer;
+}

@@ -14,13 +14,16 @@ ul li {
 }
 
 
+
 .matrix-item {
-  width: 45%;
-  height: 30rem;
+  width: 48%;
+  height: 39rem;
   border: .5px solid var(--dark-gray);
   border-radius: 5px 5px 0 0;
-  margin: 2rem 0;
-
+  margin: 2rem 1rem;
+  background-image: url("../img/SchoolBoard.png");
+  background-position: center;
+  background-size: auto;
   display: flex;
   flex-direction: column;
 
@@ -30,14 +33,16 @@ ul li {
 
 .matrix-item-header {
   text-align: center;
-  background-color: var(--light-gray);
-  padding: 1rem 0;
+  /* background-color: var(--light-gray); */
+  padding: 1rem 3rem;
   
 }
 
 .matrix-title {
   font-size: 1.6rem;
   font-weight: 700;
+  margin-top: 2rem;
+  color: white;
 
 
 }
@@ -57,6 +62,7 @@ ul li {
   flex: 1;
   /* 헤더를 제외한 모든 높이 차지하기 */
   overflow: auto;
+  color: wheat;
 }
 
 .list-item {
@@ -87,6 +93,7 @@ ul li {
 .todo-done {
   margin-left: 1rem;
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 .todo-done:checked + .todo-text {

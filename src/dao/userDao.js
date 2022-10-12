@@ -16,8 +16,6 @@ exports.insertUser = async function (email, password, nickname) {
 
       connection.release();
       return row;
-
-
     } catch (err) {
       console.error(" ##### insertUser Query Error ^^^^^");
       return false;
@@ -30,7 +28,6 @@ exports.insertUser = async function (email, password, nickname) {
   }
 };
 
-
 exports.selectUserByEmail = async function (email) {
   try {
     //DB 연결 검사
@@ -39,16 +36,16 @@ exports.selectUserByEmail = async function (email) {
 
     //쿼리
     try {
-      const selectUserByEmailQuery =
-        "select * from Users where email = ?;";
+      const selectUserByEmailQuery = "select * from Users where email = ?;";
       const selectUserByEmailParams = [email];
 
-      const [row] = await connection.query(selectUserByEmailQuery, selectUserByEmailParams);
+      const [row] = await connection.query(
+        selectUserByEmailQuery,
+        selectUserByEmailParams
+      );
 
       connection.release();
       return row;
-
-
     } catch (err) {
       console.error(" ##### insertUser Query Error ^^^^^");
       return false;
@@ -59,8 +56,7 @@ exports.selectUserByEmail = async function (email) {
     console.error(" ##### insertUser DB Error ^^^^^");
     return false;
   }
-}
-
+};
 
 exports.selectUser = async function (email, password) {
   try {
@@ -71,15 +67,13 @@ exports.selectUser = async function (email, password) {
     //쿼리
     try {
       const selectUserQuery =
-        "select * from Users where email = ? and password = ?";
-      const selectUserParams = [email,password];
+        "select * from Users where email = ? and password = ? and not(status='D')";
+      const selectUserParams = [email, password];
 
       const [row] = await connection.query(selectUserQuery, selectUserParams);
 
       connection.release();
       return row;
-
-
     } catch (err) {
       console.error(" ##### selectUser Query Error ^^^^^");
       return false;
@@ -90,12 +84,11 @@ exports.selectUser = async function (email, password) {
     console.error(" ##### selectUser DB Error ^^^^^");
     return false;
   }
-}
+};
 
 exports.selectNicknameByUserIdx = async function (userIdx) {
   try {
     //DB 연결 검사
-
     const connection = await pool.getConnection(async (conn) => conn);
 
     //쿼리
@@ -105,12 +98,12 @@ exports.selectNicknameByUserIdx = async function (userIdx) {
       const selectNicknameByUserIdxParams = [userIdx];
 
       const [row] = await connection.query(
-        selectNicknameByUserIdxQuery, selectNicknameByUserIdxParams);
+        selectNicknameByUserIdxQuery,
+        selectNicknameByUserIdxParams
+      );
 
       connection.release();
       return row;
-
-
     } catch (err) {
       console.error(" ##### selectNicknameByUserIdx Query Error ^^^^^");
       return false;
@@ -121,4 +114,32 @@ exports.selectNicknameByUserIdx = async function (userIdx) {
     console.error(" ##### selectNicknameByUserIdx DB Error ^^^^^");
     return false;
   }
-}
+};
+
+exports.deleteUser = async function (userIdx) {
+  try {
+    //DB 연결 검사
+
+    const connection = await pool.getConnection(async (conn) => conn);
+
+    //쿼리
+    try {
+      const deleteUserQuery =
+        "update Users set status = 'D' where userIdx = ?;";
+      const deleteUserParams = [userIdx];
+
+      const [row] = await connection.query(deleteUserQuery, deleteUserParams);
+
+      connection.release();
+      return row;
+    } catch (err) {
+      console.error(" ##### deleteUser Query Error ^^^^^");
+      return false;
+    } finally {
+      connection.release();
+    }
+  } catch (err) {
+    console.error(" ##### deleteUser DB Error ^^^^^");
+    return false;
+  }
+};
