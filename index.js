@@ -1,14 +1,17 @@
-const compression = require('compression');
-const cors = require("cors")
+const compression = require("compression");
+const cors = require("cors");
 const { indexRouter } = require("./src/router/indexRouter");
 const { userRouter } = require("./src/router/userRouter");
 
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
 
 /* express 미들웨어 설정 */
 console.log(1);
+
+// 정적파일 제공
+app.use(express.static("서비스 완성"));
 
 //cors 설정
 app.use(cors());
@@ -29,5 +32,5 @@ indexRouter(app); //indexRouter.js 에서 가리키는 express 객체
 userRouter(app);
 
 app.listen(port, () => {
-  console.log(`Express app listening at port: ${port}`)
-})
+  console.log(`Express app listening at port: ${port}`);
+});
